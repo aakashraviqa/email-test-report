@@ -1,0 +1,66 @@
+{
+  "name": "email-test-report",
+  "version": "2.0.0",
+  "description": "AzureDevOps Marketplace Extensions to send automated test reports.",
+  "Author":"Aakash Ravi",
+  "scripts": {
+    "test": "npm run jest",
+    "prebuild": "npm install --no-optional",
+    "build": "npm run prebuild && npm run build:emailreport && npm run build:prinsights",
+    "build:t1": "npm run prebuild && npm run build:emailreport",
+    "build:t2": "npm run prebuild && npm run build:prinsights",
+    "pack:t1": "npm run clean && npm run build:t1 && npm run pack:emailreport",
+    "pack:t2": "npm run clean && npm run build:t2 && npm run pack:prinsights",
+    "e2e:t1": "npm run e2e:emailreport",
+    "e2e:t2": "npm run e2e:prinsights",
+    "build:prinsights": "tsc -p Tasks/pullRequestInsightsTask/tsconfig.json",
+    "build:emailreport": "tsc -p Tasks/emailReportTask/tsconfig.json && node ./commands/postbuild.js emailReport",
+    "pack:emailreport": "node ./commands/package.js emailreport",
+    "pack:prinsights": "node ./commands/package.js pullRequestInsights",
+    "e2e:emailreport": "node js/emailReportExtension/emailReportTask/tests/__e_to_e_tests__/InvokeTest.js",
+    "e2e:prinsights": "node js/pullRequestInsightsExtension/pullRequestInsightsTask/tests/__e_to_e_tests__/InvokeTest.js",
+    "clean": "rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aakashraviqa/email-test-report.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/sinon": "^17.0.0",
+    "@types/stats-lite": "^2.2.1",
+    "@types/string-template": "^1.0.2",
+    "azure-devops-node-api": "^11.1.0",
+    "azure-pipelines-task-lib": "^5.0.0",
+    "nodemailer": "^6.9.9",
+    "object-to-xml": "^2.0.0",
+    "performance-now": "^2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "stats-lite": "^2.2.0",
+    "ts-mockito": "^2.6.1",
+    "uuid": "^9.0.1",
+    "xslt-processor": "^0.11.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.10.6",
+    "@types/q": "^1.5.8",
+    "glob": "^10.3.10",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.0",
+    "sinon": "^17.0.1",
+    "source-map-loader": "^4.0.1",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.3"
+  },
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/aakashraviqa/email-test-report.git/issues"
+  },
+  "homepage": "https://github.com/aakashraviqa/email-test-report.git#readme"
+}
