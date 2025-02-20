@@ -1,19 +1,19 @@
 {
-  "id": "36fd41b1-8024-4ce9-a5a0-53c3e54ed105",
-  "name": "EmailReport",
-  "friendlyName": "Email Report",
-  "description": "Send rich email report for test results and for tasks in this stage",
-  "helpMarkDown": "Sets 'EmailReportTask.EmailSent' variable to true if it sent email successfully. [Learn More](https://marketplace.visualstudio.com/items?itemName=epsteam.EmailReportExtension)",
+  "id": "16caca29-f08a-6a7b-a4c2-78d06536d256",
+  "name": "SendEmailReport",
+  "friendlyName": "Send Email Report",
+  "description": "Send rich email report for your test results and for tasks in this stage",
+  "helpMarkDown": "Sets 'EmailReportTask.EmailSent' variable to true if it sent email successfully.",
   "category": "Utility",
   "visibility": [
     "Build",
     "Release"
   ],
-  "author": "Microsoft Corporation",
+  "author": "Aakash Ravi",
   "version": {
-    "Major": 1,
-    "Minor": 1,
-    "Patch": 8
+    "Major": 2,
+    "Minor": 0,
+    "Patch": 2
   },
   "groups": [
     {
@@ -122,6 +122,15 @@
       "groupName": "emailConfiguration"
     },
     {
+      "name": "fromEmail",
+      "type": "string",
+      "label": "From Email",
+      "defaultValue": "noreply@example.com",
+      "required": false,
+      "helpMarkDown": "Specify the sender email address for the report.",
+      "groupName": "emailConfiguration"
+    },
+    {
       "name": "groupTestSummaryByStr",
       "type": "pickList",
       "label": "Group Test Summary",
@@ -227,7 +236,7 @@
   ],
   "instanceNameFormat": "Send Email Report $(sendMailConditionConfig)",
   "execution": {
-    "Node": {
+    "Node20": {
       "target": "Index.js"
     }
   }

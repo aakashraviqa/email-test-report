@@ -16,7 +16,8 @@ export class MailAddressViewModel {
   private defaultDomain: string;
 
   constructor(report: Report, mailConfig: MailConfiguration) {
-    this.from = mailConfig.$smtpConfig.$userName;
+    // this.from = mailConfig.$smtpConfig.$userName;
+    this.from = mailConfig.$fromAddress || mailConfig.$smtpConfig.$userName;
     this.defaultDomain = mailConfig.$defaultDomain;
 
     console.log("computing email addresses for to section");

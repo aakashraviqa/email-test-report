@@ -49,7 +49,10 @@ export class MockConfigProvider implements IConfigurationProvider {
     return new MailConfiguration("[{environmentStatus}] {passPercentage} tests passed",
       new RecipientsConfiguration("xyz@email.com", false, false, false, false),
       new RecipientsConfiguration("", false, false, false, false),
-      new SmtpConfiguration(smtpUser, smtpPassword, "smtp.live.com", true), "test.com");
+      new SmtpConfiguration(smtpUser, smtpPassword, "smtp.live.com", true), 
+      "test.com",
+      "noreply@example.com"
+    );
   }
 
   getReportDataConfiguration(): ReportDataConfiguration {

@@ -58,6 +58,7 @@ export class EmailSender implements IReportSender {
 
     try {
       const result = await this.sendMailAsync(transporter, mailAddressViewModel, mailConfiguration, htmlReportMessage);
+      console.log(`Sending email from: ${mailAddressViewModel.from}`);
       console.log(`Mail Sent Successfully: ${result.response}`);
       return true;
     } catch(err) {

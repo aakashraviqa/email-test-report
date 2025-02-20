@@ -1,16 +1,16 @@
 {
   "manifestVersion": 1,
-  "id": "EmailReportExtension",
-  "name": "Email Report Extension",
-  "version": "1.1.9",
-  "publisher": "epsteam",
+  "id": "SendEmailReport",
+  "name": "Send Email Report Extension",
+  "version": "2.0.2",
+  "publisher": "AakashRavi",
   "public": true,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Sends Detailed email report for a build or release pipeline",
+  "description": "Sends Detailed email report for automated tests",
   "categories": [
     "Azure Pipelines"
   ],
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/microsoft/azure-devops-engineering-extensions"
+    "uri": "https://github.com/aakashraviqa/email-test-report.git"
   },
   "contributions": [
     {

@@ -18,6 +18,9 @@ async function run(): Promise<void> {
     const reportConfiguration = new ReportConfiguration(configProvider);
     const reportProvider = new ReportProvider(new DataProviderFactory(configProvider.getPipelineConfiguration()));
 
+    // Read 'From Email' input
+    const fromEmail = tl.getInput("fromEmail", false) || "noreply@example.com";
+
     // Log telemetry: Task Inputs and Configuration
     TelemetryLogger.LogTaskConfig(reportConfiguration);
 

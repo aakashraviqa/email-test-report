@@ -8,13 +8,15 @@ export class MailConfiguration {
   private ccRecipientsConfig: RecipientsConfiguration;
   private smtpConfig: SmtpConfiguration;
   private defaultDomain: string;
+  private fromAddress: string;
 
-  constructor($mailSubject: string, $toRecipientsConfig: RecipientsConfiguration, $ccRecipientsConfig: RecipientsConfiguration, $smtpConfig: SmtpConfiguration, $defaultDomain: string) {
+  constructor($mailSubject: string, $toRecipientsConfig: RecipientsConfiguration, $ccRecipientsConfig: RecipientsConfiguration, $smtpConfig: SmtpConfiguration, $defaultDomain: string, $fromAddress: string) {
     this.mailSubject = $mailSubject;
     this.toRecipientsConfig = $toRecipientsConfig;
     this.ccRecipientsConfig = $ccRecipientsConfig;
     this.smtpConfig = $smtpConfig;
     this.defaultDomain = $defaultDomain;
+    this.fromAddress = $fromAddress; 
   }
 
   /**
@@ -64,5 +66,14 @@ export class MailConfiguration {
   public set $mailSubject(value: string) {
     this.mailSubject = value;
   }
+    // Getter for fromAddress
+    public get $fromAddress(): string {
+      return this.fromAddress;
+    }
+  
+    // Setter for fromAddress
+    public set $fromAddress(value: string) {
+      this.fromAddress = value;
+    }
 
 }

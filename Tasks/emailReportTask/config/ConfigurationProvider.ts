@@ -101,7 +101,8 @@ export class ConfigurationProvider implements IConfigurationProvider {
 
     const defaultDomain = tl.getInput(TaskConstants.DEFAULTDOMAIN_INPUTKEY, true);
 
-    this.mailConfiguration = new MailConfiguration(mailSubject, toRecipientsConfiguration, ccRecipientsConfiguration, smtpConfig, defaultDomain);
+    const fromEmail = tl.getInput("fromEmail", false) || "noreply@example.com";
+    this.mailConfiguration = new MailConfiguration(mailSubject, toRecipientsConfiguration, ccRecipientsConfiguration, smtpConfig, defaultDomain,fromEmail);
   }
 
   private initReportDataConfiguration(): void {
